@@ -14,10 +14,10 @@ Ein kleiner Weltraum-Shooter im Browser (HTML5 Canvas, kein Build nötig).
 | Q / Rechtsklick | **Ultimate** (Nova, alle 20 Sek. bereit) |
 | F | Auto-Feuer an/aus |
 | P / Esc | Pause |
-| 1–6 | Upgrade wählen |
+| 1–8 | Upgrade wählen |
 
 ## Ablauf
-- Zu Beginn wählst du ein **Upgrade** aus sechs zufälligen Karten (du nimmst drei davon).
+- Zu Beginn wählst du ein **Upgrade** aus acht zufälligen Karten (du nimmst fünf davon).
 - Nach **2 Wellen** kommt immer ein **Bossgegner**, danach gibt es wieder ein Upgrade.
 - Jeder besiegte Gegner bringt **Punkte**. Am Ende trägst du deinen Namen ins **Scoreboard** ein (Top 10, lokal im Browser gespeichert).
 

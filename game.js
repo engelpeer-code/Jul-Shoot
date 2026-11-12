@@ -286,8 +286,8 @@ function startGame() {
   offerUpgrade('Start', 'Wähle dein erstes Upgrade für den Flug.', () => nextRound());
 }
 
-const UPGRADE_OFFER = 6;  // so viele Karten werden angezeigt
-const UPGRADE_PICKS = 3;  // so viele davon darf man nehmen
+const UPGRADE_OFFER = 8;  // so viele Karten werden angezeigt
+const UPGRADE_PICKS = 5;  // so viele davon darf man nehmen
 let upgradeChoices = [];
 let upgradeCallback = null;
 let picksLeft = 0;
@@ -369,7 +369,7 @@ function gameOver() {
 
 function onKey(code) {
   if (state === 'menu' && (code === 'Enter' || code === 'Space')) startGame();
-  else if (state === 'upgrade' && /^(Digit|Numpad)[1-6]$/.test(code)) {
+  else if (state === 'upgrade' && /^(Digit|Numpad)[1-8]$/.test(code)) {
     chooseUpgrade(parseInt(code.slice(-1), 10) - 1);
   } else if (code === 'KeyP' || code === 'Escape') {
     if (state === 'playing') setPause(true);

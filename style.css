@@ -26,7 +26,7 @@ canvas { display: block; cursor: crosshair; }
   box-shadow: 0 0 40px #3b4cff33;
   margin: auto;
 }
-.panel.wide { max-width: 860px; }
+.panel.wide { max-width: 920px; }
 
 .logo {
   font-size: 56px; margin: 0; letter-spacing: 4px; font-weight: 900; white-space: nowrap;
@@ -63,9 +63,9 @@ kbd {
 .scores tr.me td { background: #2b3a8a55; color: #fff; }
 .scores .empty { color: #6a72a6; text-align: center !important; }
 
-.cards { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+.cards { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
 .card {
-  width: 240px; min-height: 190px; padding: 18px 14px;
+  width: 196px; min-height: 160px; padding: 18px 14px;
   background: linear-gradient(180deg, #1a2050, #0f1333);
   border: 2px solid #33408f; border-radius: 12px; cursor: pointer;
   transition: transform .12s, border-color .12s, box-shadow .12s;
