@@ -11,6 +11,7 @@ Ein kleiner Weltraum-Shooter im Browser (HTML5 Canvas, kein Build nötig).
 | W A S D | Fliegen |
 | Maus | Zielen |
 | Linksklick / Leertaste (halten) | Schießen |
+| Q / Rechtsklick | **Ultimate** (Nova, alle 20 Sek. bereit) |
 | F | Auto-Feuer an/aus |
 | P / Esc | Pause |
 | 1–6 | Upgrade wählen |
@@ -31,7 +32,13 @@ Ein kleiner Weltraum-Shooter im Browser (HTML5 Canvas, kein Build nötig).
 2. **Schwarmkönigin** – spuckt Drohnen aus, Lenkraketen, Säureregen
 3. **Laserkoloss** – angekündigte Ziellaser, rotierendes Laserkreuz, Geschosshagel
 4. **Phantom** – Teleport mit Ringschuss, Sturmangriff mit Minenspur, Schattensalven
+   - Nach dem **ersten Phantom** läuft eine Sequenz ab: der Bildschirm zoomt heraus und das Schlachtfeld wird größer (mehr Gegner pro Welle).
+5. **Ignis & Glacies** (Duo-Boss) – Feuer- und Eiszwilling mit eigenen Angriffen, dazwischen ein Strahl, der verletzt. Stirbt einer, wird der andere wütend.
+6. **Graviton** – Schwarzes Loch: kreisende Geschosse, Gravitationssog, Meteoritenregen
+7. **Dreadnought** – Flaggschiff: Breitseiten, Hangar mit Schützen, Schwenklaser, Lenkraketen
 
 ## Upgrades
 Schnellfeuer, Mehrfachschuss, Schwere Munition, Triebwerk, Railgun-Läufe, Panzerung,
 Durchschlag, Zielsuchend, Energieschild, Nanobots, Heckkanone, Kritische Treffer.
+
+Ultimate-Perks: Schnelle Ladung, Nova-Verstärker, Nova-Echo, Nova-Panzer, Nachbrenner.
