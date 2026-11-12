@@ -65,7 +65,7 @@ kbd {
 
 .cards { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
 .card {
-  width: 230px; min-height: 210px; padding: 18px 14px;
+  width: 240px; min-height: 190px; padding: 18px 14px;
   background: linear-gradient(180deg, #1a2050, #0f1333);
   border: 2px solid #33408f; border-radius: 12px; cursor: pointer;
   transition: transform .12s, border-color .12s, box-shadow .12s;
@@ -74,6 +74,8 @@ kbd {
 .card:hover { transform: translateY(-4px); border-color: #7fb0ff; box-shadow: 0 0 22px #5b8cff66; }
 .card .icon { font-size: 40px; line-height: 1; }
 .card .name { font-size: 18px; font-weight: 700; }
+.card.taken { opacity: .35; pointer-events: none; border-color: #4fd37a; }
+.card.taken .name::after { content: ' ✓'; color: #4fd37a; }
 .card .desc { font-size: 14px; color: #a8b2e8; }
 .card .lvl { margin-top: auto; font-size: 12px; color: #7f8ac6; }
 .card .key { font-size: 12px; color: #6f79b8; }

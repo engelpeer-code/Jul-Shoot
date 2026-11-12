@@ -216,15 +216,21 @@ function startGame() {
   offerUpgrade('Start', 'Wähle dein erstes Upgrade für den Flug.', () => nextRound());
 }
 
+const UPGRADE_OFFER = 6;  // so viele Karten werden angezeigt
+const UPGRADE_PICKS = 3;  // so viele davon darf man nehmen
 let upgradeChoices = [];
 let upgradeCallback = null;
+let picksLeft = 0;
+let taken = [];
 function offerUpgrade(title, sub, cb) {
   state = 'upgrade';
   mouse.down = false;
   const avail = UPGRADES.filter(u => (player.levels[u.id] || 0) < u.max);
-  upgradeChoices = shuffle(avail.slice()).slice(0, 3);
+  upgradeChoices = shuffle(avail.slice()).slice(0, UPGRADE_OFFER);
+  picksLeft = Math.min(UPGRADE_PICKS, upgradeChoices.length);
+  taken = [];
   upgradeCallback = cb;
-  $('upTitle').textContent = title === 'Start' ? 'Wähle ein Start-Upgrade' : 'Boss besiegt! Wähle ein Upgrade';
+  $('upTitle').textContent = title === 'Start' ? 'Wähle deine Start-Upgrades' : 'Boss besiegt! Wähle deine Upgrades';
   $('upSub').textContent = sub;
   const cards = $('cards');
   cards.innerHTML = '';
@@ -246,17 +252,25 @@ function offerUpgrade(title, sub, cb) {
     div.addEventListener('click', () => chooseUpgrade(i));
     cards.appendChild(div);
   });
+  updatePicksUI();
   showOverlay('upgrade');
+}
+function updatePicksUI() {
+  $('upSub').textContent = `Wähle ${picksLeft === 1 ? 'noch 1 Upgrade' : picksLeft + ' Upgrades'} aus ${upgradeChoices.length} Karten.`;
+  [...$('cards').children].forEach((el, i) => el.classList.toggle('taken', taken.includes(i)));
 }
 function chooseUpgrade(i) {
   if (state !== 'upgrade') return;
   const u = upgradeChoices[i];
-  if (!u) return;
+  if (!u || taken.includes(i)) return;
   u.apply(player);
   player.levels[u.id] = (player.levels[u.id] || 0) + 1;
+  taken.push(i);
+  picksLeft--;
+  addText(player.x, player.y - 30 - taken.length * 18, u.name + '!', '#7fe8ff', 18);
+  if (picksLeft > 0) { updatePicksUI(); return; }
   showOverlay(null);
   state = 'playing';
-  addText(player.x, player.y - 30, u.name + '!', '#7fe8ff', 18);
   const cb = upgradeCallback;
   upgradeCallback = null;
   if (cb) cb();
@@ -285,7 +299,7 @@ function gameOver() {
 
 function onKey(code) {
   if (state === 'menu' && (code === 'Enter' || code === 'Space')) startGame();
-  else if (state === 'upgrade' && ['Digit1', 'Digit2', 'Digit3', 'Numpad1', 'Numpad2', 'Numpad3'].includes(code)) {
+  else if (state === 'upgrade' && /^(Digit|Numpad)[1-6]$/.test(code)) {
     chooseUpgrade(parseInt(code.slice(-1), 10) - 1);
   } else if (code === 'KeyP' || code === 'Escape') {
     if (state === 'playing') setPause(true);
