@@ -1,44 +1,47 @@
 # Jul Shot
 
-Ein kleiner Weltraum-Shooter im Browser (HTML5 Canvas, kein Build nötig).
-
-## Starten
-`index.html` im Browser öffnen – fertig.
+Ein Weltraum-Shooter im Browser (HTML5 Canvas, kein Build nötig). `index.html` öffnen – fertig.
 
 ## Steuerung
-| Taste | Aktion |
+| Eingabe | Aktion |
 |---|---|
 | W A S D | Fliegen |
 | Maus | Zielen |
-| Linksklick / Leertaste (halten) | Schießen |
-| Q / Rechtsklick | **Ultimate** (Nova, alle 20 Sek. bereit) |
-| F | Auto-Feuer an/aus |
-| P / Esc | Pause |
+| Linksklick / Leertaste | Schießen |
+| Q / Rechtsklick | Ultimate (alle 20 Sek.) |
+| F / M / P | Auto-Feuer / Ton / Pause |
 | 1–8 | Upgrade wählen |
+| Gamepad | Linker Stick fliegen, rechter Stick zielen+schießen, B/LB/RB Ultimate, Start Pause |
+| Touch | Linke Bildschirmhälfte fliegen, rechte zielen+schießen, ULT-Knopf |
+
+## Modi
+- **Endlos** – Wellen und Bosse; nach einem kompletten Boss-Durchlauf kommt pro Boss ein zufälliger Modifikator dazu (Dunkelheit, Splitter, schnelle Geschosse, …).
+- **Boss Rush** – ein Boss nach dem anderen.
+- **Täglich** – gleiche Upgrade-Angebote und Wellen für alle am selben Tag, eigenes Scoreboard.
 
 ## Ablauf
-- Zu Beginn wählst du ein **Upgrade** aus acht zufälligen Karten (du nimmst fünf davon).
-- Nach **2 Wellen** kommt immer ein **Bossgegner**, danach gibt es wieder ein Upgrade.
-- Jeder besiegte Gegner bringt **Punkte**. Am Ende trägst du deinen Namen ins **Scoreboard** ein (Top 10, lokal im Browser gespeichert).
+- Zu Beginn und nach jedem Boss: 5 Upgrades aus 8 Karten (Seltenheiten: selten ×2, legendär ×3; Synergien zwischen Upgrades).
+- Nach 2 Wellen kommt ein Boss. Nach dem ersten Phantom zoomt die Kamera heraus (größeres Schlachtfeld).
+- Kombo-Multiplikator für schnelle Abschüsse, Bonus für Bosse ohne Treffer.
+- Power-ups: Herz, Magnet, Zeitlupe, Bombe.
+
+## Bosse (9)
+Wächter, Schwarmkönigin, Laserkoloss, Phantom, **Ignis & Glacies** (Duo), Graviton, Dreadnought, **Triarchie** (Trio: Schildträger zuerst!), **Festung** (zerstörbare Geschütztürme). Mehrere haben Umweltgefahren (Asteroiden, Randlaser, schrumpfender Sturm).
 
 ## Gegner
-- **Drohne** – fliegt auf dich zu
-- **Pfeil** – zielt kurz und stürzt sich dann auf dich
-- **Schütze** – hält Abstand und schießt gezielt
-- **Panzer** – langsam, zäh, feuert Fächer-Salven
+Drohne, Pfeil, Schütze, Panzer, Minenleger, Kamikaze-Schwarm, Gepanzerter (nur von hinten verwundbar) und Elite-Varianten (Schild, Teleport, schnell).
 
-## Bosse (rotieren, werden jedes Mal stärker, ab 50 % HP „wütend“)
-1. **Wächter** – Spiralfeuer, Ringexplosionen, gezielte Fächer
-2. **Schwarmkönigin** – spuckt Drohnen aus, Lenkraketen, Säureregen
-3. **Laserkoloss** – angekündigte Ziellaser, rotierendes Laserkreuz, Geschosshagel
-4. **Phantom** – Teleport mit Ringschuss, Sturmangriff mit Minenspur, Schattensalven
-   - Nach dem **ersten Phantom** läuft eine Sequenz ab: der Bildschirm zoomt heraus und das Schlachtfeld wird größer (mehr Gegner pro Welle).
-5. **Ignis & Glacies** (Duo-Boss) – Feuer- und Eiszwilling mit eigenen Angriffen, dazwischen ein Strahl, der verletzt. Stirbt einer, wird der andere wütend.
-6. **Graviton** – Schwarzes Loch: kreisende Geschosse, Gravitationssog, Meteoritenregen
-7. **Dreadnought** – Flaggschiff: Breitseiten, Hangar mit Schützen, Schwenklaser, Lenkraketen
+## Ultimates
+Nova, Schwarzes Loch, Orbitallaser, Drohnenschwarm – plus 5 Perks (Schnelle Ladung, Nova-Verstärker, Nova-Echo, Nova-Panzer, Nachbrenner).
 
-## Upgrades
-Schnellfeuer, Mehrfachschuss, Schwere Munition, Triebwerk, Railgun-Läufe, Panzerung,
-Durchschlag, Zielsuchend, Energieschild, Nanobots, Heckkanone, Kritische Treffer.
+## Waffen & Upgrades
+Blaster, Streuschuss, Laserstrahl, Raketenwerfer, Kettenblitz; Begleitdrohnen und viele Stat-Upgrades.
 
-Ultimate-Perks: Schnelle Ladung, Nova-Verstärker, Nova-Echo, Nova-Panzer, Nachbrenner.
+## Meta-Fortschritt
+Credits pro Lauf → Hangar: Schiffe (Falke, Bastion, Wisp), Ultimates, permanente Upgrades. 12 Erfolge schalten Anstriche frei. Alles wird lokal im Browser gespeichert.
+
+## Sound
+Effekte und Musik werden per Web Audio live erzeugt (keine Audiodateien).
+
+## Online-Bestenliste
+`online.js` nutzt die geteilte Datenbank, wenn die Seite als Claude-Artefakt läuft; sonst ist sie ohne Wirkung.
